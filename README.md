@@ -30,7 +30,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 ```
 **2. Apply policy to require tags for all resources**
 ```bash 
-az policy definition create --name tagging-policy --rules azurepolicy.json
+az policy definition create --name tagging-policy --rules policy.json --mode indexed --description "require indexed resources to be tagged"
 ```
  Note: the policy can be verified to exist with the command
 
