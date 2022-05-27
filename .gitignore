@@ -3,3 +3,5 @@
 .docx
 .terraform
 azurepolicy.json
+terraform.*
+.terraform.tfstate.lock.info

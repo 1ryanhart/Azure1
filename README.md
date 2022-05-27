@@ -52,13 +52,9 @@ Build the image using the command `packer build server.json`
 
 **3. Create resources including load balancer using Terraform**
 1. Run `terraform init` to initialise Terraform
-3. Run `terraform plan` to view what will be created
+3. Run `terraform plan -out solution.plan` to view what will be created
 4. Run `terraform apply` to build the web server and load balancer
 
-### Output
+### Output from executing `terraform apply`
 
-Upon a successful Terraform build, the console will display the load balancer public IP: 
-```bash
-public_ip_address:{Your public ip address}.
-```
 
