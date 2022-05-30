@@ -1,6 +1,7 @@
 provider "azurerm" {
   features {}
 }
+
 data "azurerm_resource_group" "main" {
   name = "AzuredevOps"
 }
@@ -28,16 +29,16 @@ resource "azurerm_network_security_group" "main" {
   resource_group_name = data.azurerm_resource_group.main.name
 }
 
-resource "azurerm_network_security_rule" "AllowHTTPInbound" {
-  name                        = "AllowHTTPInbound"
-  priority                    = 200
+resource "azurerm_network_security_rule" "mainsr100" {
+  name                        = "DenyVNetInboundFromInternet"
+  priority                    = 100
   direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
+  access                      = "Deny"
+  protocol                    = "*"
   source_port_range           = "*"
-  destination_port_range      = "80"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
+  destination_port_range      = "*"
+  source_address_prefix       = "Internet"
+  destination_address_prefix  = "VirtualNetwork"
   resource_group_name         = data.azurerm_resource_group.main.name
   network_security_group_name = azurerm_network_security_group.main.name
 }

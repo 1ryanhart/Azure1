@@ -44,6 +44,7 @@ Save your credentials as the following envionment variables
 export ARM_CLIENT_ID=<YOUR CLIENT ID>
 export ARM_CLIENT_SECRET=<YOUR CLIENT SECRET>
 export ARM_SUBSCRIPTION_ID=<YOUR SUBSCRIPTION ID>
+export ARM_TENANT_ID=<YOUR TENANT ID>
 ```
 
 Build the image using the command `packer build server.json`
@@ -54,6 +55,11 @@ Build the image using the command `packer build server.json`
 1. Run `terraform init` to initialise Terraform
 3. Run `terraform plan -out solution.plan` to view what will be created
 4. Run `terraform apply` to build the web server and load balancer
+
+
+### How to customise the vars.tf file
+
+Vars.tf includes 5 variables, all with default values. In order to customise the default values for any of these fields, change the relavant 'default' value.   
 
 ### Output from executing `terraform apply`
 
